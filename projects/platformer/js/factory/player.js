@@ -122,8 +122,8 @@
         
         function createFlyingJumpState(name) {
             let 
-                xOffset = 17,
-                yOffset = 9,
+                xOffset = 9,
+                yOffset = 17,
                 state = createState(name);
                 state.fire = state.duck = state.idle = state.walk = state.run = 
                 state.stop = state.duck = state.jump = state.flyingJump = doNothing;
@@ -222,7 +222,7 @@
                 console.log(`origYOffset : ${origYOffset}`);
             
             asset.body.offset.x += 10 * _direction;
-            asset.body.offset.y -= 30;
+            asset.body.offset.y -= 25;
             asset.body.y -= 22;
             let onUpdate = function (anim, frame) {
                 console.log(frame.index);
@@ -243,7 +243,7 @@
             setState(_flyingJump);
             asset.animations.currentAnim.onComplete.addOnce(function onComplete() { 
                 console.log('jump complete');
-                asset.body.offset.y += 24;
+                asset.body.offset.y += 20;
                 flyingJump.onUpdate.remove(onUpdate, this);
                 stop();
             }, this);
